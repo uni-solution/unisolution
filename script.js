@@ -1,3 +1,29 @@
+// Call Now Popup
+function showCallPopup() {
+    const popup = document.getElementById('callPopup');
+    popup.classList.add('show');
+}
+
+function hideCallPopup() {
+    const popup = document.getElementById('callPopup');
+    popup.classList.remove('show');
+}
+
+// Show popup on page load
+window.addEventListener('load', () => {
+    showCallPopup();
+});
+
+// Close popup on button click
+document.getElementById('closePopup').addEventListener('click', hideCallPopup);
+
+// Close popup when clicking outside the content
+document.getElementById('callPopup').addEventListener('click', (e) => {
+    if (e.target.id === 'callPopup') {
+        hideCallPopup();
+    }
+});
+
 // Mobile Navigation
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
