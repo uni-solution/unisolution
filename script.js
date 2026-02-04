@@ -9,9 +9,9 @@ function hideCallPopup() {
     popup.classList.remove('show');
 }
 
-// Show popup on page load
+// Show popup on page load after 5 seconds
 window.addEventListener('load', () => {
-    showCallPopup();
+    setTimeout(showCallPopup, 5000);
 });
 
 // Close popup on button click
