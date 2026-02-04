@@ -1,566 +1,1130 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Solution - Independent Service Assistance Platform</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16859615114"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17213377521"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'AW-16859615114');
+  gtag('config', 'AW-17213377521');
 </script>
-<style>
-    .independence-disclosure {
-        background: white;
-        color: black;
-        padding: 20px;
-        text-align: center;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 1.6;
-        margin-top: 80px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speed Link Consultant - Internet & Connectivity Experts</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #f4f8fb;
+      color: #222;
+      margin: 0;
+      padding: 0;
     }
-    .independence-disclosure strong {
-        font-weight: 700;
+
+    /* Call Popup Styles */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease-in-out;
     }
-</style>
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .popup-container {
+      background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+      border-radius: 20px;
+      padding: 40px 35px;
+      max-width: 450px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      animation: slideUp 0.4s ease-out;
+      text-align: center;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #fff;
+      font-size: 32px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .popup-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+
+    .popup-content {
+      color: #fff;
+    }
+
+    .popup-headline {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .popup-subtext {
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+      color: #e3f2fd;
+      line-height: 1.6;
+    }
+
+    .popup-cta-btn {
+      display: inline-block;
+      background: #ffb300;
+      color: #1a237e;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 18px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 25px rgba(255, 179, 0, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .popup-cta-btn:hover {
+      background: #ffc107;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 179, 0, 0.4);
+    }
+
+    .popup-phone-number {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffb300;
+      margin-bottom: 20px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .popup-phone-number:hover {
+      color: #ffc107;
+      text-decoration: underline;
+    }
+
+    .popup-trust-line {
+      font-size: 0.9rem;
+      color: #b3e5fc;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .popup-container {
+        padding: 30px 25px;
+        max-width: 95%;
+      }
+      .popup-headline {
+        font-size: 1.5rem;
+      }
+      .popup-subtext {
+        font-size: 0.95rem;
+      }
+      .popup-cta-btn {
+        padding: 14px 30px;
+        font-size: 1rem;
+      }
+      .popup-phone-number {
+        font-size: 1.3rem;
+      }
+    }
+    .header {
+      background: #1a237e;
+      color: #fff;
+      padding: 24px 0 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(26,35,126,0.08);
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-left: 40px;
+      color: #fff;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      margin-right: 40px;
+      padding: 0;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+    .navbar a:hover {
+      color: #ffb300;
+    }
+    .hero-section {
+      background: linear-gradient(90deg, #3949ab 60%, #ffb300 100%);
+      color: #fff;
+      padding: 80px 0 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1200px;
+      margin: auto;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .hero-text h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .hero-text span {
+      color: #ffb300;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 28px;
+      color: #e3e3e3;
+    }
+    .hero-btn {
+      background: #ffb300;
+      color: #1a237e;
+      padding: 14px 36px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background 0.2s;
+      border: none;
+      box-shadow: 0 4px 16px rgba(255,179,0,0.12);
+    }
+    .hero-btn:hover {
+      background: #fff;
+      color: #1a237e;
+    }
+    .hero-image img {
+      max-width: 350px;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(26,35,126,0.12);
+    }
+    #particles-js {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .about-orange {
+      background: #fff;
+      padding: 70px 0;
+    }
+    .about-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-text h2 {
+      color: #1a237e;
+      font-size: 2rem;
+      margin-bottom: 18px;
+    }
+    .about-text p {
+      color: #444;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .about-stats {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .stat-box-orange {
+      background: #ffb300;
+      color: #1a237e;
+      border-radius: 12px;
+      padding: 32px 28px;
+      text-align: center;
+      min-width: 160px;
+      box-shadow: 0 4px 16px rgba(255,179,0,0.10);
+    }
+    .stat-box-orange h3 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .key-services {
+      background: #e3e6f3;
+      padding: 70px 0;
+    }
+    .services-container {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+    .services-container h2 {
+      color: #1a237e;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .services-subtitle {
+      color: #444;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+    .service-box {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(26,35,126,0.08);
+      padding: 36px 28px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .service-box:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(26,35,126,0.12);
+    }
+    .service-box i {
+      font-size: 2.2rem;
+      color: #ffb300;
+      margin-bottom: 14px;
+    }
+    .service-box h3 {
+      color: #1a237e;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .service-box p {
+      color: #444;
+      font-size: 1rem;
+    }
+    .explore-deals {
+      background: #fff;
+      padding: 70px 0;
+    }
+    .deals-title {
+      color: #1a237e;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .deals-subtitle {
+      color: #444;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+    .deals-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+    .deal-card {
+      background: #f4f8fb;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(26,35,126,0.08);
+      padding: 36px 28px;
+      width: 260px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .deal-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(26,35,126,0.12);
+    }
+    .deal-card h3 {
+      color: #1a237e;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .deal-card .price {
+      color: #ffb300;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .deal-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 18px;
+      color: #444;
+      font-size: 1rem;
+    }
+    .deal-btn {
+      background: #1a237e;
+      color: #fff;
+      padding: 12px 32px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+      border: none;
+      transition: background 0.2s;
+      box-shadow: 0 4px 16px rgba(26,35,126,0.10);
+      display: inline-block;
+    }
+    .deal-btn:hover {
+      background: #ffb300;
+      color: #1a237e;
+    }
+    .highlights-section {
+      background: #e3e6f3;
+      padding: 70px 0;
+    }
+    .highlights-title {
+      color: #1a237e;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .highlight-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+    .highlight-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(26,35,126,0.08);
+      padding: 32px 24px;
+      width: 260px;
+      text-align: center;
+    }
+    .highlight-card img {
+      width: 48px;
+      margin-bottom: 12px;
+    }
+    .highlight-card h4 {
+      color: #1a237e;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .highlight-card p {
+      color: #444;
+      font-size: 1rem;
+    }
+    .testimonials-section {
+      background: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .testimonials-wrapper {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .testimonial-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .testimonial-card {
+      background: #e3e6f3;
+      padding: 30px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 10px 15px rgba(26,35,126,0.05);
+    }
+    .testimonial-card .quote {
+      font-style: italic;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    .testimonial-card h4 {
+      color: #1a237e;
+      margin-top: 0;
+    }
+    .cta-section {
+      background: #1a237e;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .cta-wrapper h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .cta-wrapper p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+    .disclaimer-section {
+      background: #f4f8fb;
+      padding: 40px 0;
+      color: #444;
+    }
+    .disclaimer-container {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    .disclaimer-container h2 {
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+    .faq-section {
+      background: #fff;
+      padding: 60px 0;
+    }
+    .faq-container {
+      max-width: 900px;
+      margin: auto;
+    }
+    .faq-title {
+      color: #1a237e;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .faq-item {
+      margin-bottom: 18px;
+      border-bottom: 1px solid #e3e6f3;
+    }
+    .faq-question {
+      background: none;
+      border: none;
+      color: #1a237e;
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 100%;
+      text-align: left;
+      padding: 16px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 0 16px 0;
+      color: #444;
+      font-size: 1rem;
+    }
+    .faq-answer.open {
+      display: block;
+    }
+    .faq-question .icon {
+      font-size: 1.3rem;
+      color: #ffb300;
+      margin-left: 8px;
+    }
+    .contact-section-light {
+      background: #e3e6f3;
+      padding: 70px 0;
+    }
+    .contact-container-light {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+    .section-title-light {
+      color: #1a237e;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .contact-content-light {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .contact-form-light {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(26,35,126,0.08);
+      padding: 32px 24px;
+      width: 320px;
+      text-align: left;
+    }
+    .contact-form-light h4 {
+      color: #1a237e;
+      margin-bottom: 18px;
+    }
+    .contact-form-light input,
+    .contact-form-light textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 14px;
+      border: 1px solid #e3e6f3;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #f4f8fb;
+      color: #222;
+    }
+    .contact-form-light button {
+      background: #1a237e;
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form-light button:hover {
+      background: #ffb300;
+      color: #1a237e;
+    }
+    .contact-info-light {
+      width: 320px;
+      text-align: left;
+    }
+    .contact-info-light h4 {
+      color: #1a237e;
+      margin-bottom: 12px;
+    }
+    .contact-info-light p {
+      color: #444;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .footer-light {
+      background: #1a237e;
+      color: #fff;
+      padding: 40px 0 0 0;
+      font-size: 1rem;
+    }
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+      justify-content: space-between;
+      padding-bottom: 20px;
+    }
+    .footer-column {
+      flex: 1 1 220px;
+      min-width: 220px;
+      margin-bottom: 20px;
+    }
+    .logo-text h4 {
+      color: #ffb300;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    .footer-column h4 {
+      color: #ffb300;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    .footer-column a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      border-top: 1px solid #3949ab;
+      padding: 18px 0;
+      text-align: center;
+      color: #e3e3e3;
+      font-size: 0.95rem;
+    }
+    .footer-links {
+      margin-top: 8px;
+    }
+    .footer-links a {
+      color: #ffb300;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 900px) {
+      .hero-content, .about-container, .services-grid, .deals-grid, .highlight-cards, .testimonial-cards, .footer-container, .contact-content-light {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+      }
+      .footer-container {
+        gap: 30px;
+      }
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Independence Disclosure Banner -->
-    <div class="independence-disclosure">
-        <strong>Disclaimer:</strong> Universal Solution is an independent third-party service assistance provider. We are not affiliated with, authorized by, or endorsed by any internet, broadband, or cable TV service provider. Brand names, if mentioned, are used strictly for informational purposes only.
+
+  <!-- Call Now Popup Overlay -->
+  <div id="callPopupOverlay" class="popup-overlay">
+    <div class="popup-container">
+      <button class="popup-close" onclick="closePopup()">&times;</button>
+      <div class="popup-content">
+        <h2 class="popup-headline">Internet or Cable Not Working?</h2>
+        <p class="popup-subtext">Get instant help for slow internet, outages, setup issues, or cable problems.</p>
+        <a href="tel:+18557655649" class="popup-cta-btn">📞 CALL SUPPORT NOW</a>
+        <a href="tel:+18557655649" class="popup-phone-number">(855) 765-5649</a>
+        <p class="popup-trust-line">Quick assistance • No forms • Talk to a real agent</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <h2>Universal Solution</h2>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="disclaimer.html">Disclaimer</a></li>
-                </ul>
-                <div class="nav-cta">
-                    <a href="tel:+18886517421" class="btn btn-primary">
-                        <i class="fas fa-phone"></i> (888) 651-7421
-                    </a>
-                </div>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Speed Link Consultant</div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Independent Internet & Cable Service Assistance</h1>
-                <p>Get general guidance and informational support related to internet, broadband, Wi-Fi, and cable TV services from an independent third-party assistance provider.</p>
-                <div class="hero-buttons">
-                    <a href="tel:+18886517421" class="btn btn-primary">
-                        <i class="fas fa-phone"></i> Talk to a Third-Party Internet Advisor
-                    </a>
-                    <a href="#services" class="btn btn-secondary">Call for Independent Service Guidance</a>
-                </div>
-                <p style="margin-top: 15px; font-size: 13px; color: #666; font-style: italic;">Not an ISP. No brand affiliation.</p>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Service Assistance">
-            </div>
-        </div>
-    </section>
-
-    <!-- What We Do Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>What We Do</h2>
-                <p>At Universal Solution, we help users:</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Understand Service Options</h3>
-                    <p>Understand internet and broadband service options available from various providers.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Practical Guidance</h3>
-                    <p>Get practical guidance on common connectivity issues and troubleshooting approaches.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-map-signs"></i>
-                    </div>
-                    <h3>Navigate Processes</h3>
-                    <p>Learn how to navigate service provider processes and understand service terms.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tv"></i>
-                    </div>
-                    <h3>Cable TV Information</h3>
-                    <p>Receive general informational support related to cable TV services.</p>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 30px; font-size: 18px; font-weight: 600;">Our role is limited to independent guidance and assistance only.</p>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="tel:+18886517421" class="btn btn-primary" style="font-size: 20px; padding: 20px 50px; display: inline-flex; align-items: center; gap: 15px;">
-                    <i class="fas fa-phone-alt" style="font-size: 24px;"></i>
-                    <span>Call Now: (888) 651-7421</span>
-                </a>
-                <p style="margin-top: 15px; font-size: 14px; color: #666; font-style: italic;">Talk to a Third-Party Internet Advisor</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- What We Do NOT Do Section -->
-    <section class="services" style="background: #f8f9fa;">
-        <div class="container">
-            <div class="section-header">
-                <h2>What We Do NOT Do</h2>
-                <p>To avoid confusion, please note:</p>
-            </div>
-            <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-                <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <i class="fas fa-times-circle" style="color: #dc3545; font-size: 24px; margin-right: 15px;"></i>
-                            <span style="font-size: 16px;">We are <strong>not</strong> an Internet Service Provider (ISP)</span>
-                        </li>
-                        <li style="padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <i class="fas fa-times-circle" style="color: #dc3545; font-size: 24px; margin-right: 15px;"></i>
-                            <span style="font-size: 16px;">We do <strong>not</strong> provide official customer support for any brand</span>
-                        </li>
-                        <li style="padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <i class="fas fa-times-circle" style="color: #dc3545; font-size: 24px; margin-right: 15px;"></i>
-                            <span style="font-size: 16px;">We are <strong>not</strong> affiliated, authorized, or endorsed by any telecom or cable company</span>
-                        </li>
-                        <li style="padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <i class="fas fa-times-circle" style="color: #dc3545; font-size: 24px; margin-right: 15px;"></i>
-                            <span style="font-size: 16px;">We do <strong>not</strong> sell internet or cable subscriptions</span>
-                        </li>
-                        <li style="padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <i class="fas fa-times-circle" style="color: #dc3545; font-size: 24px; margin-right: 15px;"></i>
-                            <span style="font-size: 16px;">We do <strong>not</strong> provide guaranteed technical fixes</span>
-                        </li>
-                        <li style="padding: 15px; display: flex; align-items: center;">
-                            <i class="fas fa-info-circle" style="color: #667eea; font-size: 24px; margin-right: 15px;"></i>
-                            <span style="font-size: 16px;">All mentions of providers, if any, are strictly for <strong>informational purposes only</strong></span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="tel:+18886517421" class="btn btn-primary" style="font-size: 20px; padding: 20px 50px; display: inline-flex; align-items: center; gap: 15px;">
-                    <i class="fas fa-phone-alt" style="font-size: 24px;"></i>
-                    <span>Call (888) 651-7421 for Independent Guidance</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Providers Section -->
-    <section class="providers">
-        <div class="container">
-            <div class="section-header">
-                <h2>Providers We Can Assist With</h2>
-                <p>We provide educational guidance for services from various providers (not affiliated)</p>
-            </div>
-            <div class="providers-container">
-                <div class="providers-grid">
-                    <div class="provider-card">
-                        <h3>AT&T®</h3>
-                        <p>Fiber and DSL internet guidance</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Verizon®</h3>
-                        <p>FiOS and wireless assistance</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Spectrum®</h3>
-                        <p>Cable internet and TV support</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Comcast Xfinity®</h3>
-                        <p>Internet and entertainment help</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Frontier®</h3>
-                        <p>Fiber and DSL guidance</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>HughesNet®</h3>
-                        <p>Satellite internet assistance</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>CenturyLink®</h3>
-                        <p>DSL and fiber support</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Cox®</h3>
-                        <p>Cable services guidance</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Optimum®</h3>
-                        <p>Cable internet help</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Mediacom®</h3>
-                        <p>TV and internet assistance</p>
-                    </div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="provider-card">
-                        <h3>AT&T®</h3>
-                        <p>Fiber and DSL internet guidance</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Verizon®</h3>
-                        <p>FiOS and wireless assistance</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Spectrum®</h3>
-                        <p>Cable internet and TV support</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Comcast Xfinity®</h3>
-                        <p>Internet and entertainment help</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>Frontier®</h3>
-                        <p>Fiber and DSL guidance</p>
-                    </div>
-                    <div class="provider-card">
-                        <h3>HughesNet®</h3>
-                        <p>Satellite internet assistance</p>
-                    </div>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
-                <em>We are not affiliated with, endorsed by, or sponsored by any of these providers. All trademarks belong to their respective owners.</em>
-            </p>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="tel:+18886517421" class="btn btn-primary" style="font-size: 20px; padding: 20px 50px; display: inline-flex; align-items: center; gap: 15px;">
-                    <i class="fas fa-phone-alt" style="font-size: 24px;"></i>
-                    <span>Get Guidance: (888) 651-7421</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Universal Solution?</h2>
-                <p>Your independent partner for connectivity assistance</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Educational Approach</h3>
-                    <p>We help you understand provider options, service features, and technical requirements to make informed decisions.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Unbiased Guidance</h3>
-                    <p>As an independent platform, we provide objective assistance without provider-specific pressure or bias.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Dedicated Support</h3>
-                    <p>Our team is available to assist you with questions, troubleshooting guidance, and service navigation.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Time-Saving Help</h3>
-                    <p>We facilitate the research process and help you navigate complex service options efficiently.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Customer-Focused</h3>
-                    <p>Our assistance model prioritizes your needs and goals throughout your connectivity journey.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Startup Innovation</h3>
-                    <p>Founded in 2026, we bring fresh perspective and modern approaches to connectivity assistance.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="tel:+18886517421" class="btn btn-primary" style="font-size: 20px; padding: 20px 50px; display: inline-flex; align-items: center; gap: 15px;">
-                    <i class="fas fa-phone-alt" style="font-size: 24px;"></i>
-                    <span>Call for Assistance: (888) 651-7421</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Section -->
-    <section class="technology">
-        <div class="container">
-            <div class="technology-content">
-                <div class="technology-text">
-                    <h2>Understanding Modern Connectivity</h2>
-                    <p>Learn about today's connectivity technologies and how we can assist you in navigating your options for a connected lifestyle.</p>
-                    <div class="tech-features">
-                        <div class="tech-feature">
-                            <i class="fas fa-wifi"></i>
-                            <div>
-                                <h4>Internet Technology Guidance</h4>
-                                <p>Learn about fiber, cable, DSL, and satellite options available from various providers</p>
-                            </div>
-                        </div>
-                        <div class="tech-feature">
-                            <i class="fas fa-tv"></i>
-                            <div>
-                                <h4>Streaming & Cable Support</h4>
-                                <p>Understand streaming services, cable packages, and entertainment options</p>
-                            </div>
-                        </div>
-                        <div class="tech-feature">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div>
-                                <h4>Smart Home Assistance</h4>
-                                <p>Get guidance on connectivity needs for smart devices and home automation</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="tel:+18886517421" class="btn btn-primary" style="font-size: 18px; padding: 15px 40px; display: inline-flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-phone-alt" style="font-size: 20px;"></i>
-                        <span>Call (888) 651-7421</span>
-                    </a>
-                </div>
-                <div class="technology-image">
-                    <img src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Technology Assistance">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Coverage Section -->
-    <section class="coverage">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nationwide Assistance</h2>
-                <p>Supporting customers across the United States</p>
-            </div>
-            <div class="coverage-content">
-                <div class="coverage-stats">
-                    <div class="coverage-stat">
-                        <h3>2026</h3>
-                        <p>Year Founded</p>
-                    </div>
-                    <div class="coverage-stat">
-                        <h3>All 50</h3>
-                        <p>States Supported</p>
-                    </div>
-                    <div class="coverage-stat">
-                        <h3>Multiple</h3>
-                        <p>Provider Options</p>
-                    </div>
-                </div>
-                <div class="coverage-info">
-                    <h3>Assistance Available Nationwide</h3>
-                    <p>We provide guidance and support for connectivity services across the United States. Whether you're in an urban center, suburban community, or rural area, we can help you navigate your provider options.</p>
-                    <div class="coverage-types">
-                        <div class="coverage-type">
-                            <i class="fas fa-city"></i>
-                            <span>Urban Areas</span>
-                        </div>
-                        <div class="coverage-type">
-                            <i class="fas fa-home"></i>
-                            <span>Suburban Communities</span>
-                        </div>
-                        <div class="coverage-type">
-                            <i class="fas fa-tree"></i>
-                            <span>Rural Locations</span>
-                        </div>
-                    </div>
-                    <a href="tel:+18886517421" class="btn btn-primary" style="font-size: 18px; padding: 15px 40px; display: inline-flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-phone-alt" style="font-size: 20px;"></i>
-                        <span>Call Now: (888) 651-7421</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Us</h2>
-                    <p><strong>Universal Solution is an independent third-party service assistance provider offering general guidance related to internet, broadband, Wi-Fi, and cable TV services.</strong></p>
-                    <p>We assist users by providing informational support, helping them understand service options, and offering general guidance on common connectivity-related concerns.</p>
-                    <p>We do not provide internet or cable services directly, and we do not represent or partner with any telecom, internet, or cable TV provider. Our focus is transparency, clarity, and responsible service assistance.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>Independent</h3>
-                            <p>Third-Party Provider</p>
-                        </div>
-                        <div class="stat">
-                            <h3>Guidance</h3>
-                            <p>Not Direct Service</p>
-                        </div>
-                        <div class="stat">
-                            <h3>Transparent</h3>
-                            <p>Clear Disclosures</p>
-                        </div>
-                    </div>
-                    <a href="tel:+18886517421" class="btn btn-primary" style="font-size: 18px; padding: 15px 40px; display: inline-flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-phone-alt" style="font-size: 20px;"></i>
-                        <span>Call (888) 651-7421 for Guidance</span>
-                    </a>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Customer Assistance Team">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Contact Information</h2>
-                <p>Reach out for independent service guidance</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                        <div class="contact-item" style="margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 20px;">
-                            <i class="fas fa-building" style="font-size: 48px; color: #667eea; margin-bottom: 10px;"></i>
-                            <div>
-                                <h3>Legal Business Name</h3>
-                                <p style="font-size: 20px; font-weight: 600; color: #333;">Universal Solution</p>
-                            </div>
-                        </div>
-                        <div class="contact-item" style="margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 20px;">
-                            <i class="fas fa-phone" style="font-size: 48px; color: #667eea; margin-bottom: 10px;"></i>
-                            <div>
-                                <h3>Phone Number</h3>
-                                <a href="tel:+18886517421" style="font-size: 32px; font-weight: 700; color: #667eea; text-decoration: none;">(888) 651-7421</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope" style="font-size: 48px; color: #667eea; margin-bottom: 10px;"></i>
-                            <div>
-                                <h3>Email Address</h3>
-                                <p style="font-size: 20px; font-weight: 600; color: #333;">support@universalsolution.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="background: #fff3cd; padding: 20px; margin-top: 30px; border-radius: 10px; border-left: 4px solid #ffc107;">
-                        <p style="margin: 0; font-weight: 600; color: #856404;"><strong>Disclaimer:</strong> Universal Solution is an independent third-party service assistance provider. We are not affiliated with, authorized by, or endorsed by any internet, broadband, or cable TV service provider.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Universal Solution</h3>
-                    <p><strong>Legal Business Name:</strong> Universal Solution</p>
-                    <div class="footer-phone" style="margin: 15px 0;">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+18886517421" style="font-size: 18px; font-weight: 600;">(888) 651-7421</a>
-                    </div>
-                    <p style="margin-top: 10px;"><strong>Email:</strong> support@universalsolution.com</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Information</h4>
-                    <ul>
-                        <li><a href="#services">What We Do</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="disclaimer.html">Disclaimer</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
-                        <li><a href="refund-policy.html">Refund Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom" style="background: #fff3cd; padding: 20px; margin-top: 30px; border-radius: 5px;">
-                <p style="margin: 0; font-weight: 600; color: #856404;"><strong>Disclaimer:</strong></p>
-                <p style="margin: 10px 0 0 0; color: #856404;">Universal Solution is an independent third-party service assistance provider. We are not affiliated with, authorized by, or endorsed by any internet, broadband, or cable TV service provider. Brand names, if mentioned, are used strictly for informational purposes only.</p>
-            </div>
-            <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd;">
-                <p>&copy; 2026 Universal Solution. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Call Now Popup -->
-    <div id="callPopup" class="call-popup">
-        <div class="call-popup-content">
-            <button class="close-popup" id="closePopup">&times;</button>
-            <h2 class="popup-headline">Internet or Cable Not Working?</h2>
-            <p class="popup-subtext">Get instant help for slow internet, outages, setup issues, or cable problems.</p>
-            <a href="tel:+18886517421" class="btn-call-now">
-                <i class="fas fa-phone"></i> CALL SUPPORT NOW
-            </a>
-            <div class="popup-phone-display">(888) 651-7421</div>
-            <p class="popup-trust-line">Quick assistance • No forms • Talk to a real agent</p>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero-section" id="home" style="min-height: 100vh; display: flex; align-items: center;">
+    <div class="hero-content">
+      <div class="hero-text" data-aos="fade-right">
+        <h1>Empowering Your World with <span>Speed Link Consultant</span></h1>
+        <p>Expert connectivity solutions for homes and businesses. Fast, secure, and always reliable—so you’re never offline.</p>
+        
+        <a href="tel:+18557655649" class="hero-btn" style="margin-top:16px; background:#1a237e; color:#fff;">Call Now: (855) 765-5649</a>
+      </div>
+      <div class="hero-image" data-aos="fade-left">
+        <img src="1.png" alt="Internet Hero Graphic">
+      </div>
     </div>
+    <div id="particles-js"></div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("particles-js", {
+      fullScreen: { enable: false },
+      background: { color: { value: "transparent" } },
+      fpsLimit: 60,
+      particles: {
+        number: { value: 40, density: { enable: true, area: 800 } },
+        color: { value: ["#ffb300", "#1a237e"] },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.7,
+          random: true,
+          anim: { enable: false }
+        },
+        size: {
+          value: 4,
+          random: true,
+          anim: { enable: false }
+        },
+        move: {
+          enable: true,
+          speed: 1.5,
+          direction: "none",
+          outModes: { default: "bounce" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { quantity: 4 }
+        }
+      },
+      detectRetina: true
+    });
+  </script>
 
-    <script src="script.js"></script>
+  <!-- About us -->
+  <section class="about-orange" id="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>Who We Are</h2>
+        <p>
+          Speed Link Consultant is dedicated to delivering seamless internet and communication solutions. Our mission is to connect people and businesses with the fastest, most dependable technology available.
+        </p>
+        <p>
+          With a focus on innovation and customer care, we make sure every client enjoys a smooth, secure, and hassle-free online experience.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box-orange">
+          <h3>1M+</h3>
+          <p>Happy Clients</p>
+        </div>
+        <div class="stat-box-orange">
+          <h3>99.98%</h3>
+          <p>Service Reliability</p>
+        </div>
+        <div class="stat-box-orange">
+          <h3>365/24/7</h3>
+          <p>Expert Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="key-services" id="services">
+    <div class="services-container">
+      <h2>Our Services</h2>
+      <p class="services-subtitle">Connecting you to the digital world—faster and smarter</p>
+      <div class="services-grid">
+        <div class="service-box" data-aos="fade-up">
+          <i class="fas fa-network-wired"></i>
+          <h3>Internet Consulting</h3>
+          <p>Personalized advice and setup for high-speed internet, tailored to your needs.</p>
+        </div>
+        <div class="service-box" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-phone"></i>
+          <h3>VoIP & Digital Phone</h3>
+          <p>Modern voice solutions for homes and offices—clear calls, flexible plans.</p>
+        </div>
+        <div class="service-box" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-sitemap"></i>
+          <h3>Network Solutions</h3>
+          <p>Secure, scalable networking for businesses and smart homes.</p>
+        </div>
+        <div class="service-box" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-tv"></i>
+          <h3>Streaming & Bundles</h3>
+          <p>Get the best in streaming and entertainment, all in one place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore Our Deals Section -->
+  <section id="explore-deals" class="explore-deals">
+    <div class="deals-wrapper">
+      <h2 class="deals-title">Featured Packages</h2>
+      <p class="deals-subtitle">Choose the perfect plan for your home or business and enjoy exclusive savings.</p>
+      <div class="deals-grid">
+        <div class="deal-card" data-aos="fade-up" data-aos-delay="0">
+          <h3>Essential Connect</h3>
+          <p class="price">$24.99/mo</p>
+          <ul>
+            <li>Up to 150 Mbps</li>
+            <li>Unlimited Data</li>
+            <li>24/7 Support</li>
+          </ul>
+          <a href="tel:+18777476781" class="deal-btn">Start Now</a>
+        </div>
+        <div class="deal-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Family Stream</h3>
+          <p class="price">$44.99/mo</p>
+          <ul>
+            <li>Internet + TV Streaming</li>
+            <li>Free Setup</li>
+            <li>3 Months Premium</li>
+          </ul>
+          <a href="tel:+18557655649" class="deal-btn">Get Offer</a>
+        </div>
+        <div class="deal-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>Business Pro</h3>
+          <p class="price">$69.99/mo</p>
+          <ul>
+            <li>500 Mbps + VoIP</li>
+            <li>Priority Support</li>
+            <li>Custom Solutions</li>
+          </ul>
+          <a href="tel:+1 8557655649" class="deal-btn">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Highlights Section -->
+  <section id="highlights" class="highlights-section">
+    <div class="highlights-wrapper">
+      <h2 class="highlights-title">Why Choose Speed Link Consultant?</h2>
+      <div class="highlight-cards">
+        <div class="highlight-card" data-aos="fade-right">
+          <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/1a237e/network.png" alt="Speed Icon">
+          <h4>Lightning-Fast Setup</h4>
+          <p>Get connected quickly with our expert team and streamlined process.</p>
+        </div>
+        <div class="highlight-card" data-aos="fade-up">
+          <img src="https://img.icons8.com/ios/50/1a237e/customer-support--v1.png" alt="Support Icon">
+          <h4>Always-On Support</h4>
+          <p>Our specialists are available 24/7 to resolve any issue, any time.</p>
+        </div>
+        <div class="highlight-card" data-aos="fade-left">
+          <img src="https://img.icons8.com/ios-filled/50/1a237e/money.png" alt="Money Icon">
+          <h4>Transparent Pricing</h4>
+          <p>No hidden fees—just honest, affordable plans for every need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="testimonials-wrapper">
+      <h2 class="section-title">What Clients Say</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card" data-aos="fade-up">
+          <p class="quote">“Speed Link Consultant made our office upgrade seamless. Fast install and zero downtime!”</p>
+          <h4>- Jamie R., Dallas</h4>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <p class="quote">“Their team is always available and super helpful. Highly recommended!”</p>
+          <h4>- Alex P., Miami</h4>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <p class="quote">“Affordable, reliable, and easy to work with. Our family loves the streaming bundle.”</p>
+          <h4>- Priya S., San Jose</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call To Action Section -->
+  <section id="cta" class="cta-section">
+    <div class="cta-wrapper">
+      <h2>Ready to Upgrade Your Connection?</h2>
+      <p>Contact Speed Link Consultant today and discover the best plan for your needs.</p>
+      <a href="#contact" class="deal-btn">Contact Us</a>
+    </div>
+  </section>
+
+  <!--Disclaimer-->
+  <section class="disclaimer-section" id="disclaimer">
+    <div class="disclaimer-container">
+      <h2>Disclaimer</h2>
+      <p>
+        The information provided on this website is for general informational purposes only. Speed Link Consultant makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, products, or services contained on this website. Any reliance you place on such information is therefore strictly at your own risk.
+      </p>
+    </div>
+  </section>
+
+  <!--FAQ-->
+  <section class="faq-section" id="faq">
+    <div class="faq-container">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-question">What services does Speed Link Consultant offer?<span class="icon">+</span></button>
+        <div class="faq-answer">
+          <p>Speed Link Consultant provides a range of connectivity solutions including high-speed internet, cellular plans, bundled packages, and streaming services. As a certified JNA dealer, we offer services from top providers to ensure you have the best options for your home or business.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What companies are serviceable through Speed Link Consultant and JNA?<span class="icon">+</span></button>
+        <div class="faq-answer">
+          <p>As a certified JNA dealer, Speed Link Consultant offers services from leading companies, including:</p>
+          <ul>
+            <li>Paramount+</li>
+            <li>SHOWTIME®</li>
+            <li>AT&amp;T</li>
+            <li>Verizon</li>
+            <li>Spectrum</li>
+            <li>Comcast Xfinity</li>
+            <li>Frontier</li>
+            <li>HughesNet</li>
+            <li>CenturyLink</li>
+            <li>...and many more.</li>
+          </ul>
+          <p>Through our partnerships, we ensure you have access to reliable and diverse service options.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Is Speed Link Consultant a service provider?<span class="icon">+</span></button>
+        <div class="faq-answer">
+          <p>Speed Link Consultant is an authorized dealer and certified retailer, but we are not a direct service provider. We work with leading service providers to connect you to their offerings and ensure you receive the best possible service.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What are Speed Link Consultant's execution charges?<span class="icon">+</span></button>
+        <div class="faq-answer">
+          <p>Speed Link Consultant charges for execution services, which include setting up new connections, processing bill payments, plan upgrades, account cancellations, and other administrative tasks. These charges range from $49.99 to $199.99, depending on the service request, and are separate from the billing charges of the service providers you’re signed up with.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Why are Speed Link Consultant’s execution charges separate from my service provider’s billing?<span class="icon">+</span></button>
+        <div class="faq-answer">
+          <p>As a separate entity, Speed Link Consultant handles the execution of your service requests independently. Our charges cover the work required to manage and complete requests like plan upgrades, new installations, or account changes. These execution fees are distinct from your provider’s billing, which covers your actual internet, cellular, or streaming service.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How do I contact Speed Link Consultant for support?<span class="icon">+</span></button>
+        <div class="faq-answer">
+          <p>You can reach out to our customer support team through the contact form on our website or by calling us directly at the assistance number provided below. Our team is available to assist you with any inquiries, service requests, or troubleshooting needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+      const icon = question.querySelector(".icon");
+      question.addEventListener("click", () => {
+        const isOpen = answer.classList.contains("open");
+        document.querySelectorAll(".faq-answer").forEach((el) => {
+          el.classList.remove("open");
+        });
+        document.querySelectorAll(".faq-question .icon").forEach((i) => {
+          i.textContent = "+";
+        });
+        if (!isOpen) {
+          answer.classList.add("open");
+          icon.textContent = "−";
+        } else {
+          answer.classList.remove("open");
+          icon.textContent = "+";
+        }
+      });
+    });
+  </script>
+
+  <!--contact us-->
+  <section class="contact-section-light" id="contact">
+    <div class="contact-container-light">
+      <h2 class="section-title-light">Contact Us</h2>
+      <div class="contact-content-light">
+        <div class="contact-form-light">
+          <h4>Send a Message</h4>
+          <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email*" required>
+            <textarea placeholder="How can we help you?" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+        <div class="contact-info-light">
+          <h4>We're Here to Help</h4>
+          <p>
+            Every client is unique. Reach out with your questions or requirements, and our team will respond promptly.
+          </p>
+          <p><strong>Speed Link Consultant Support</strong></p>
+            <p><a href="tel:+1 8557655649">+1 (877) 654-9321</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
+<footer class="footer-light">
+  <div class="footer-container">
+    <div class="footer-column">
+      <div class="logo-text">
+        <h4>SPEED LINK CONSULTANT</h4>
+      </div>
+      <p>Speed Link Consultant connects you with the best internet, phone, and streaming solutions. We simplify your digital life with expert advice and hands-on support.</p>
+      <p>Let us help you find the right plan and enjoy a seamless setup—so you can stay connected, always.</p>
+    </div>
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <p>Phone: <a href="tel:+1 8557655649">+1 (877) 654-9321</a></p>
+    </div>
+    <div class="footer-column">
+      <h4>Why Us</h4>
+      <p>Fast, reliable, and affordable connectivity—customized for homes and businesses of all sizes.</p>
+    </div>
+  </div>
+  <hr />
+  <div class="footer-bottom">
+    <p>© Copyright 2025 Speed Link Consultant. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#faq">F.A.Q</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+  </div>
+</footer>
 
+<!-- Call Popup Script -->
+<script>
+  // Show popup when page loads or refreshes
+  window.addEventListener('load', function() {
+    document.getElementById('callPopupOverlay').style.display = 'flex';
+  });
 
+  // Function to close popup
+  function closePopup() {
+    document.getElementById('callPopupOverlay').style.display = 'none';
+  }
+
+  // Close popup when clicking outside
+  document.getElementById('callPopupOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closePopup();
+    }
+  });
+</script>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/7b3b6e2e2b.js" crossorigin="anonymous"></script>
 </html>
+
 
 
 
